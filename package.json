@@ -1,0 +1,25 @@
+{
+  "name": "general-category",
+  "version": "1.0.0",
+  "description": "Look up General_Category of Unicode for given character",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hakatashi/general-category.git"
+  },
+  "keywords": [
+    "Unicode",
+    "General_Category",
+    "character",
+    "categorization"
+  ],
+  "author": "Koki Takahashi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hakatashi/general-category/issues"
+  },
+  "homepage": "https://github.com/hakatashi/general-category#readme"
+}
