@@ -22,7 +22,15 @@
     "url": "https://github.com/hakatashi/general-category/issues"
   },
   "homepage": "https://github.com/hakatashi/general-category#readme",
+  "dependencies": {
+    "code-point-at": "^1.0.0"
+  },
   "devDependencies": {
+    "chai": "^3.4.1",
+    "gulp": "^3.9.0",
+    "gulp-livescript": "^3.0.0",
+    "livescript": "^1.4.0",
+    "mocha": "^2.3.4",
     "unicode-8.0.0": "^0.1.5"
   }
 }
