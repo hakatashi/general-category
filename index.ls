@@ -34,7 +34,7 @@ module.exports = (character, options = {}) ->
 
   while hi - lo > 1
     mid = Math.floor (hi + lo) / 2
-    test = codepoints[mid]
+    test = parse-int codepoints[mid]
 
     if codepoint < test
       hi = mid
@@ -44,6 +44,4 @@ module.exports = (character, options = {}) ->
     else if test < codepoint
       lo = mid
 
-  console.log hi, lo, mid
-
-  return unicode[lo]
+  return unicode[codepoints[lo]]

@@ -1,5 +1,6 @@
 require! {
   \gulp
+  \gulp-mocha
   \gulp-livescript
 }
 
@@ -13,4 +14,8 @@ gulp.task \build-data <[livescript]> (done) ->
 
 gulp.task \build <[livescript build-data]>
 
-gulp.task \default <[build]>
+gulp.task \test <[build]> ->
+  gulp.src <[test/test.js]> {-read}
+  .pipe gulp-mocha reporter: \spec
+
+gulp.task \default <[build test]>
