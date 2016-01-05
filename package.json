@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "Look up General_Category of Unicode for given character",
   "main": "index.js",
+  "files": [
+    "*.js",
+    "*.json",
+    "test"
+  ],
   "scripts": {
     "test": "gulp"
   },
