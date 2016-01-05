@@ -1,7 +1,7 @@
 {
   "name": "general-category",
   "version": "1.0.1",
-  "description": "Look up General_Category of Unicode for given character",
+  "description": "Look up General_Category of Unicode character",
   "main": "index.js",
   "files": [
     "*.js",
