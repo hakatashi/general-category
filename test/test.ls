@@ -128,3 +128,33 @@ describe 'Basic usage' ->
     for asset in assets
       expect general-category asset.codepoint
       .to.equal asset.category
+
+  It 'throws error when zero-length string is given' ->
+    expect -> general-category ''
+    .to.throw Error
+
+  It 'throws error when non-string or non-number is given' ->
+    expect -> general-category!
+    .to.throw Error
+
+    expect -> general-category {}
+    .to.throw Error
+
+    expect -> general-category null
+    .to.throw Error
+
+    expect -> general-category /foobar/
+    .to.throw Error
+
+  It 'throws error when invalid code point is given' ->
+    expect -> general-category -42
+    .to.throw Error
+
+    expect -> general-category 0x110000
+    .to.throw Error
+
+    expect -> general-category NaN
+    .to.throw Error
+
+    expect -> general-category Infinity
+    .to.throw Error
