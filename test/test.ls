@@ -104,6 +104,20 @@ assets =
     codepoint: 0x0020
     category: \Zs
 
+  # Surrogate Pairs
+
+  # GREEK ACROPHONIC ATTIC FIFTY
+  * char: '\uD800\uDD44'
+    codepoint: 0x10144
+    category: \Nl
+  # EGYPTIAN HIEROGLYPH W018
+  * char: '\uD80C\uDFC5'
+    codepoint: 0x133C5
+    category: \Lo
+  * char: '\uD842\uDFB7'
+    codepoint: 0x20BB7
+    category: \Lo
+
 describe 'Basic usage' ->
   It 'basically works' ->
     for asset in assets
