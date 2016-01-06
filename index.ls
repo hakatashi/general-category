@@ -7,6 +7,47 @@ require! {
 # TODO: more neat sort algorithm
 versions = Object.keys data .sort!
 
+long-names =
+  Lu: \Uppercase_Letter
+  Ll: \Lowercase_Letter
+  Lt: \Titlecase_Letter
+  Lm: \Modifier_Letter
+  Lo: \Other_Letter
+  Mn: \Nonspacing_Mark
+  Mc: \Spacing_Mark
+  Me: \Enclosing_Mark
+  Nd: \Decimal_Number
+  Nl: \Letter_Number
+  No: \Other_Number
+  Pc: \Connector_Punctuation
+  Pd: \Dash_Punctuation
+  Ps: \Open_Punctuation
+  Pe: \Close_Punctuation
+  Pi: \Initial_Punctuation
+  Pf: \Final_Punctuation
+  Po: \Other_Punctuation
+  Sm: \Math_Symbol
+  Sc: \Currency_Symbol
+  Sk: \Modifier_Symbol
+  So: \Other_Symbol
+  Zs: \Space_Separator
+  Zl: \Line_Separator
+  Zp: \Paragraph_Separator
+  Cc: \Control
+  Cf: \Format
+  Cs: \Surrogate
+  Co: \Private_Use
+  Cn: \Unassigned
+
+long-category-names =
+  L: \Letter
+  M: \Mark
+  N: \Number
+  P: \Punctuation
+  S: \Symbol
+  Z: \Separator
+  C: \Other
+
 module.exports = (character, options = {}) ->
   # Look up codepoint for given character
   codepoint = switch typeof! character
@@ -44,4 +85,17 @@ module.exports = (character, options = {}) ->
     else if test < codepoint
       lo = mid
 
-  return unicode[codepoints[lo]]
+  unless options.detailed
+    if options.long
+      return long-name[unicode[codepoints[lo]]]
+    else
+      return unicode[codepoints[lo]]
+  else
+    if options.long
+      return
+        large: long-category-name[unicode[codepoints[lo]].0]
+        small: long-name[unicode[codepoints[lo]]]
+    else
+      return
+        large: unicode[codepoints[lo]].0
+        small: unicode[codepoints[lo]]
