@@ -87,14 +87,14 @@ module.exports = (character, options = {}) ->
 
   unless options.detailed
     if options.long
-      return long-name[unicode[codepoints[lo]]]
+      return long-names[unicode[codepoints[lo]]]
     else
       return unicode[codepoints[lo]]
   else
     if options.long
       return
         large: long-category-name[unicode[codepoints[lo]].0]
-        small: long-name[unicode[codepoints[lo]]]
+        small: long-names[unicode[codepoints[lo]]]
     else
       return
         large: unicode[codepoints[lo]].0
