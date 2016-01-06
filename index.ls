@@ -93,7 +93,7 @@ module.exports = (character, options = {}) ->
   else
     if options.long
       return
-        large: long-category-name[unicode[codepoints[lo]].0]
+        large: long-category-names[unicode[codepoints[lo]].0]
         small: long-names[unicode[codepoints[lo]]]
     else
       return
