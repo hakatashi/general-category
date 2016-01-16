@@ -5,8 +5,8 @@
   "main": "index.js",
   "files": [
     "*.js",
-    "*.json",
-    "test"
+    "data/*.json",
+    "test/*.js"
   ],
   "scripts": {
     "test": "gulp"
