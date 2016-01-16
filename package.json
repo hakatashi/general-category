@@ -33,11 +33,11 @@
   "devDependencies": {
     "async": "^1.5.2",
     "chai": "^3.4.1",
-    "ect": "^0.5.9",
     "gulp": "^3.9.0",
     "gulp-livescript": "^3.0.0",
     "gulp-mocha": "^2.2.0",
     "livescript": "^1.4.0",
+    "lodash.template": "^4.0.0",
     "mocha": "^2.3.4",
     "unicode-1.1.5": "^0.1.5",
     "unicode-2.0.14": "^0.1.5",

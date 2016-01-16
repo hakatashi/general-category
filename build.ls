@@ -1,5 +1,8 @@
 module.exports = (done) ->
-  require! {fs, path, async, ect}
+  require! {
+    fs, path, async
+    'lodash.template': template
+  }
 
   unicodes =
     '1.1.5': require \unicode-1.1.5/categories
@@ -43,10 +46,17 @@ module.exports = (done) ->
 
     data[version] = category-data
 
-  # Initialize ECT renderer
-  renderer = ect root: __dirname
+  var version-template
 
   async.series [
+    # Initialize template
+    (done) ->
+      fs.read-file \version.js.template (error, data) ->
+        return done error if error
+
+        version-template := template data.to-string!
+        done!
+
     # Create data directory if not exist
     (done) -> fs.access \data fs.F_OK, (error) ->
       if error
@@ -65,10 +75,7 @@ module.exports = (done) ->
         async.parallel [
           (done) -> fs.write-file "data/#version.json" JSON.stringify(new-data), done
 
-          (done) ->
-            renderer.render \version.js.ect {version} (error, result) ->
-              return done error if error
-              fs.write-file "#version.js", result, done
+          (done) -> fs.write-file "#version.js", version-template({version}), done
         ], done
       , done
 
@@ -77,8 +84,6 @@ module.exports = (done) ->
         version = versions[* - 1]
         new-data = "#version": data[version]
 
-        renderer.render \version.js.ect {version} (error, result) ->
-          return done error if error
-          fs.write-file \latest.js result, done
+        fs.write-file \latest.js, version-template({version}), done
     ], done
   ], done
