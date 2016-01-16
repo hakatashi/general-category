@@ -1,5 +1,5 @@
 module.exports = (done) ->
-  require! {fs, path, async}
+  require! {fs, path, async, ect}
 
   unicodes =
     '1.1.5': require \unicode-1.1.5/categories
@@ -40,6 +40,9 @@ module.exports = (done) ->
 
     data[version] = category-data
 
+  # Initialize ECT renderer
+  renderer = ect root: __dirname
+
   async.series [
     # Create data directory if not exist
     (done) -> fs.access \data fs.F_OK, (error) ->
@@ -58,6 +61,11 @@ module.exports = (done) ->
 
         async.parallel [
           (done) -> fs.write-file "data/#version.json" JSON.stringify(new-data), done
+
+          (done) ->
+            renderer.render \version.js.ect {version} (error, result) ->
+              return done error if error
+              fs.write-file "#version.js", result, done
         ], done
       , done
     ], done

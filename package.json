@@ -33,6 +33,7 @@
   "devDependencies": {
     "async": "^1.5.2",
     "chai": "^3.4.1",
+    "ect": "^0.5.9",
     "gulp": "^3.9.0",
     "gulp-livescript": "^3.0.0",
     "gulp-mocha": "^2.2.0",
