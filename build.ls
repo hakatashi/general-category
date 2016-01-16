@@ -1,5 +1,5 @@
 module.exports = (done) ->
-  require! fs
+  require! {fs, path, async}
 
   unicodes =
     '1.1.5': require \unicode-1.1.5/categories
@@ -40,5 +40,25 @@ module.exports = (done) ->
 
     data[version] = category-data
 
-  # Write out to JSON file
-  fs.write-file \data.json JSON.stringify(data), done
+  async.series [
+    # Create data directory if not exist
+    (done) -> fs.access \data fs.F_OK, (error) ->
+      if error
+        fs.mkdir \data done
+      else
+        done!
+
+    (done) -> async.parallel [
+      # Write out to JSON file
+      (done) -> fs.write-file \data/index.json JSON.stringify(data), done
+
+      # Write separated version to JSON file
+      (done) -> async.for-each-of data, (category-data, version, done) ->
+        new-data = "#version": category-data
+
+        async.parallel [
+          (done) -> fs.write-file "data/#version.json" JSON.stringify(new-data), done
+        ], done
+      , done
+    ], done
+  ], done
