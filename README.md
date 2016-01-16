@@ -30,7 +30,7 @@ category('Ä', {detailed: true}); // -> { large: 'L', small: 'Lu' }
 
 // If you are only interested in specific version of Unicode,
 // you can require module with limited version of Unicode data.
-const category6_1_0 = require('general-category/3.2.0');
+const category3_2_0 = require('general-category/3.2.0');
 category3_2_0('\u{1F600}'); // -> 'Cn'
 
 // 'latest' version also works.
