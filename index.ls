@@ -1,6 +1,6 @@
 require! {
   \assert
-  \./data.json
+  \./data/index.json : data
   \code-point-at
 }
 
