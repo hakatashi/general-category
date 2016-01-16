@@ -283,13 +283,13 @@ describe '`detailed` option' ->
 
 describe '`version` option' ->
   It 'throws error for unknown version' ->
-    expect -> general-category version: '0.0.0'
+    expect -> general-category \U version: '0.0.0'
     .to.throw Error
 
-    expect -> general-category version: 'foobar'
+    expect -> general-category \U version: 'foobar'
     .to.throw Error
 
-    expect -> general-category version: true
+    expect -> general-category \U version: true
     .to.throw Error
 
   It 'returns versioned data of General_Category' ->
@@ -308,3 +308,34 @@ describe '`version` option' ->
     .to.equal \Cn
     expect general-category \Ꮋ version: \1.1.5
     .to.equal \Cn
+
+describe 'Limited version submodule' ->
+  It 'loads version-limited version of module if required with version number' ->
+    general-category = require '../5.2.0'
+
+    expect general-category \Ꮋ
+    .to.equal \Lo
+    expect -> general-category \Ꮋ version: \8.0.0
+    .to.throw Error
+    expect general-category \Ꮋ version: \5.2.0
+    .to.equal \Lo
+    expect -> general-category \Ꮋ version: \4.0.1
+    .to.throw Error
+    expect -> general-category \Ꮋ version: \1.1.5
+    .to.throw Error
+
+  It 'loads latest version of module if required with "latest" keyword' ->
+    general-category = require '../latest'
+
+    expect general-category \Ꮋ
+    .to.equal \Lu
+    expect general-category \Ꮋ version: \8.0.0
+    .to.equal \Lu
+    expect -> general-category \Ꮋ version: \5.2.0
+    .to.throw Error
+    expect -> general-category \Ꮋ version: \1.1.5
+    .to.throw Error
+
+    for asset in assets
+      expect general-category asset.char
+      .to.equal asset.category
