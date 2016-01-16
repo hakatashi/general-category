@@ -25,6 +25,9 @@ module.exports = (done) ->
     '7.0.0': require \unicode-7.0.0/categories
     '8.0.0': require \unicode-8.0.0/categories
 
+  # TODO: more neat sort algorithm
+  versions = Object.keys unicodes .sort!
+
   # Returning data
   data = Object.create null
 
@@ -68,5 +71,14 @@ module.exports = (done) ->
               fs.write-file "#version.js", result, done
         ], done
       , done
+
+      # Create 'latest' submodule
+      (done) ->
+        version = versions[* - 1]
+        new-data = "#version": data[version]
+
+        renderer.render \version.js.ect {version} (error, result) ->
+          return done error if error
+          fs.write-file \latest.js result, done
     ], done
   ], done
