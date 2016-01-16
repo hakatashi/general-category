@@ -280,3 +280,31 @@ describe '`detailed` option' ->
         large: asset.large-category-name
         small: asset.category-name
       }
+
+describe '`version` option' ->
+  It 'throws error for unknown version' ->
+    expect -> general-category version: '0.0.0'
+    .to.throw Error
+
+    expect -> general-category version: 'foobar'
+    .to.throw Error
+
+    expect -> general-category version: true
+    .to.throw Error
+
+  It 'returns versioned data of General_Category' ->
+    # Cherokee syllables, which were added in Unicode 3.0.0,
+    # were categorized as Other_Letter before Unicode 8.0.0,
+    # while is categorized in Uppercase_Letter now in Unicode 8.0.0
+    expect general-category \Ꮋ version: \8.0.0
+    .to.equal \Lu
+    expect general-category \Ꮋ version: \7.0.0
+    .to.equal \Lo
+    expect general-category \Ꮋ version: \5.2.0
+    .to.equal \Lo
+    expect general-category \Ꮋ version: \3.0.0
+    .to.equal \Lo
+    expect general-category \Ꮋ version: \2.1.9
+    .to.equal \Cn
+    expect general-category \Ꮋ version: \1.1.5
+    .to.equal \Cn
