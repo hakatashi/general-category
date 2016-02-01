@@ -9,33 +9,33 @@ Look up [General_Category](http://unicode.org/reports/tr44/#General_Category) of
 ```js
 const category = require('general-category');
 
-// Just gimme character and get category.
+// Just gimme character and you'll get category.
 category('Å'); // -> 'Lu'
 
-// This module is aware of surrogate pairs, of course.
+// This module is aware of surrogate pairs.
 category('\u{1F600}'); // -> 'So'
 
-// Providing Unicode code point also works.
+// Providing code point also works.
 category(0x0020); // -> 'Zs'
 
-// You're getting category data with latest version of Unicode.
+// You'll get category data with latest version of Unicode by default.
 // You can switch it by `version` option
 category('\u{1F600}', {version: '6.0.0'}); // -> 'Cn'
 
-// You can get long_name instead of abbreviated form.
-category('Ä', {long: true}); // -> 'Uppercase_Letter'
-
-// You can also get detaild information of category.
-category('Ä', {detailed: true}); // -> { large: 'L', small: 'Lu' }
-
-// If you are only interested in specific version of Unicode,
-// you can require module with limited version of Unicode data.
+// If you are only interested in the specific version of Unicode,
+// you can require the module with limited data loaded.
 const category3_2_0 = require('general-category/3.2.0');
 category3_2_0('\u{1F600}'); // -> 'Cn'
 
 // 'latest' version also works.
 const categoryLatest = require('general-category/latest');
 categoryLatest('\u{1F600}'); // -> 'So'
+
+// You can get long_name instead of an abbreviated one.
+category('Ä', {long: true}); // -> 'Uppercase_Letter'
+
+// You can also get detaild information of category.
+category('Ä', {detailed: true}); // -> { large: 'L', small: 'Lu' }
 ```
 
 ## API
