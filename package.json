@@ -39,7 +39,7 @@
     "livescript": "^1.4.0",
     "lodash.template": "^4.0.1",
     "mocha": "^2.3.4",
-    "unicode-1.1.5": "^0.1.5",
+    "unicode-1.1.5": "^0.2.0",
     "unicode-2.0.14": "^0.1.5",
     "unicode-2.1.2": "^0.1.5",
     "unicode-2.1.5": "^0.1.5",
