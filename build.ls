@@ -38,8 +38,12 @@ module.exports = (done) ->
     current-category = null
     category-data = Object.create null
 
+    # node-unicode-data 0.2.0 seems to export Map object instead of the plain object hash.
+    categories-iter = categories.entries!
+
     # Iterates through codepoints and skip for compression if category is succeeding
-    for category, codepoint in categories
+    until (entry = categories-iter.next!).done
+      [codepoint, category] = entry.value
       if current-category isnt category
         category-data[codepoint] = category
         current-category = category
