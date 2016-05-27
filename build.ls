@@ -2,6 +2,7 @@ module.exports = (done) ->
   require! {
     fs, path, async, 'gulp-util'
     'lodash.template': template
+    './categories.js': {long-names}
   }
 
   unicodes =
@@ -31,6 +32,8 @@ module.exports = (done) ->
   # TODO: more neat sort algorithm
   versions = Object.keys unicodes .sort!
 
+  sorted-category-names = Object.keys long-names .sort!
+
   # Returning data
   data = Object.create null
 
@@ -47,8 +50,10 @@ module.exports = (done) ->
       [codepoint, category] = entry.value
 
       if current-category isnt category
+        category-index = sorted-category-names.index-of category
+
         category-data.push codepoint - previous-codepoint
-        category-data.push category
+        category-data.push category-index
 
         current-category = category
         previous-codepoint = codepoint

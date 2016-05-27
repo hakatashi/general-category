@@ -8,6 +8,8 @@ module.exports = (data) ->
   # TODO: more neat sort algorithm
   versions = Object.keys data .sort!
 
+  sorted-category-names = Object.keys long-names .sort!
+
   # Build data hash from array of codepints
   hashed-data = Object.create null
 
@@ -17,10 +19,10 @@ module.exports = (data) ->
 
     while unicode.length > 0
       codepoint-diff = unicode.shift!
-      category = unicode.shift!
+      category-index = unicode.shift!
 
       current-codepoint += codepoint-diff
-      hashed-unicode[current-codepoint] = category
+      hashed-unicode[current-codepoint] = sorted-category-names[category-index]
 
     hashed-data[version] = hashed-unicode
 
