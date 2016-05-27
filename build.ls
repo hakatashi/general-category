@@ -1,6 +1,6 @@
 module.exports = (done) ->
   require! {
-    fs, path, async
+    fs, path, async, 'gulp-util'
     'lodash.template': template
   }
 
@@ -49,6 +49,9 @@ module.exports = (done) ->
         current-category = category
 
     data[version] = category-data
+
+  data-length = JSON.stringify data .length
+  gulp-util.log "Building category data finished. Size: #data-length bytes"
 
   var version-template
 
