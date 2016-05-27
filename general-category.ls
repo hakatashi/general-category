@@ -1,48 +1,8 @@
 require! {
   \assert
   \code-point-at
+  \./categories.js : {long-names, long-category-names}
 }
-
-long-names =
-  Lu: \Uppercase_Letter
-  Ll: \Lowercase_Letter
-  Lt: \Titlecase_Letter
-  Lm: \Modifier_Letter
-  Lo: \Other_Letter
-  Mn: \Nonspacing_Mark
-  Mc: \Spacing_Mark
-  Me: \Enclosing_Mark
-  Nd: \Decimal_Number
-  Nl: \Letter_Number
-  No: \Other_Number
-  Pc: \Connector_Punctuation
-  Pd: \Dash_Punctuation
-  Ps: \Open_Punctuation
-  Pe: \Close_Punctuation
-  Pi: \Initial_Punctuation
-  Pf: \Final_Punctuation
-  Po: \Other_Punctuation
-  Sm: \Math_Symbol
-  Sc: \Currency_Symbol
-  Sk: \Modifier_Symbol
-  So: \Other_Symbol
-  Zs: \Space_Separator
-  Zl: \Line_Separator
-  Zp: \Paragraph_Separator
-  Cc: \Control
-  Cf: \Format
-  Cs: \Surrogate
-  Co: \Private_Use
-  Cn: \Unassigned
-
-long-category-names =
-  L: \Letter
-  M: \Mark
-  N: \Number
-  P: \Punctuation
-  S: \Symbol
-  Z: \Separator
-  C: \Other
 
 module.exports = (data) ->
   # TODO: more neat sort algorithm
