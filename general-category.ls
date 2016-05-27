@@ -48,6 +48,22 @@ module.exports = (data) ->
   # TODO: more neat sort algorithm
   versions = Object.keys data .sort!
 
+  # Build data hash from array of codepints
+  hashed-data = Object.create null
+
+  for version, unicode of data
+    hashed-unicode = Object.create null
+    current-codepoint = 0
+
+    while unicode.length > 0
+      codepoint-diff = unicode.shift!
+      category = unicode.shift!
+
+      current-codepoint += codepoint-diff
+      hashed-unicode[current-codepoint] = category
+
+    hashed-data[version] = hashed-unicode
+
   return (character, options = {}) ->
     # Look up codepoint for given character
     codepoint = switch typeof! character
@@ -61,9 +77,9 @@ module.exports = (data) ->
     # Switch Unicode version to use as source
     # Default is latest version available
     if options.version
-      unicode = data[options.version]
+      unicode = hashed-data[options.version]
     else
-      unicode = data[versions[* - 1]]
+      unicode = hashed-data[versions[* - 1]]
 
     throw new Error 'Invalid/Unavailable Unicode version specified' unless unicode
 
