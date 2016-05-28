@@ -4,6 +4,14 @@ require! {
   'prelude-ls': {unfoldr, map, concat}
 }
 
+# Polyfill Buffer.from
+export buffer-from =
+  try
+    Buffer.from [0]
+    Buffer.from
+  catch
+    -> new Buffer ...
+
 # Here the buffer is represented by little-endian base-128 digits,
 # whose MSB is 1 for non-lowest digit and 0 for lowest digit.
 
@@ -20,7 +28,7 @@ export integer-array-to-buffer = ->
     # Invert bits to avoid things like '\u0000' in outputed JSON file
     |> map (.^. 0xFF)
   |> concat
-  |> Buffer.from
+  |> buffer-from
 
 export buffer-to-integer-array = (buffer) ->
   ret = []

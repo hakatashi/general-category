@@ -1,7 +1,7 @@
 require! {
   \assert
   \code-point-at
-  \./util.js : {buffer-to-integer-array}
+  \./util.js : {buffer-to-integer-array, buffer-from}
   \./categories.js : {long-names, long-category-names}
 }
 
@@ -15,7 +15,7 @@ module.exports = (data) ->
   hashed-data = Object.create null
 
   for version, packed-unicode of data
-    unicode = packed-unicode |> Buffer.from _, \binary |> buffer-to-integer-array
+    unicode = packed-unicode |> buffer-from _, \binary |> buffer-to-integer-array
 
     hashed-unicode = Object.create null
     current-codepoint = 0
