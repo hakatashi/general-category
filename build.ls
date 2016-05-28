@@ -2,6 +2,7 @@ module.exports = (done) ->
   require! {
     fs, path, async, 'gulp-util'
     'lodash.template': template
+    './util.js': {integer-array-to-buffer}
     './categories.js': {long-names}
   }
 
@@ -58,7 +59,7 @@ module.exports = (done) ->
         current-category = category
         previous-codepoint = codepoint
 
-    data[version] = category-data
+    data[version] = category-data |> integer-array-to-buffer |> (.to-string \binary)
 
   data-length = JSON.stringify data .length
   gulp-util.log "Building category data finished. Size: #data-length bytes"

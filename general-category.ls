@@ -1,6 +1,7 @@
 require! {
   \assert
   \code-point-at
+  \./util.js : {buffer-to-integer-array}
   \./categories.js : {long-names, long-category-names}
 }
 
@@ -13,7 +14,9 @@ module.exports = (data) ->
   # Build data hash from array of codepints
   hashed-data = Object.create null
 
-  for version, unicode of data
+  for version, packed-unicode of data
+    unicode = packed-unicode |> Buffer.from _, \binary |> buffer-to-integer-array
+
     hashed-unicode = Object.create null
     current-codepoint = 0
 
