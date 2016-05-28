@@ -28,7 +28,8 @@
   },
   "homepage": "https://github.com/hakatashi/general-category#readme",
   "dependencies": {
-    "code-point-at": "^1.0.0"
+    "code-point-at": "^1.0.0",
+    "prelude-ls": "^1.1.2"
   },
   "devDependencies": {
     "async": "^1.5.2",
