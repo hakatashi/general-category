@@ -43,13 +43,13 @@ module.exports = (done) ->
   # Returning data
   data = Object.create null
 
-  for version, categories of unicodes
+  Object.keys unicodes .for-each (version) ->
     current-category = null
     category-data = []
     previous-codepoint = 0
 
     # node-unicode-data 0.2.0 seems to export Map object instead of the plain object hash.
-    categories-iter = categories!entries!
+    categories-iter = unicodes[version]!entries!
 
     # Iterates through codepoints and skip for compression if category is succeeding
     until (entry = categories-iter.next!).done
