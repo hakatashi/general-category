@@ -7,8 +7,9 @@ module.exports = (done) ->
     './categories.js': {long-names}
   }
 
-  # Shim Buffer.from for older node versions
-  Buffer.from = buffer-from
+  # Shim Buffer to avoid an incompatibility of Buffer from
+  # between Node.js versions
+  global.Buffer = require 'buffer/' .Buffer
 
   unicodes =
     '1.1.5': -> require \unicode-1.1.5/General_Category
