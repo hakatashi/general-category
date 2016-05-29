@@ -1,6 +1,7 @@
 module.exports = (done) ->
   require! {
     fs, path, async, 'gulp-util'
+    'prelude-ls': {fold}
     'lodash.template': template
     './util.js': {integer-array-to-buffer}
     './categories.js': {long-names}
@@ -35,6 +36,10 @@ module.exports = (done) ->
 
   sorted-category-names = Object.keys long-names .sort!
 
+  reverse-long-names = sorted-category-names |> fold do
+    (hash, item) -> hash[long-names[item]] = item; hash
+    Object.create null
+
   # Returning data
   data = Object.create null
 
@@ -51,7 +56,8 @@ module.exports = (done) ->
       [codepoint, category] = entry.value
 
       if current-category isnt category
-        category-index = sorted-category-names.index-of category
+        short-category = reverse-long-names[category]
+        category-index = sorted-category-names.index-of short-category
 
         category-data.push codepoint - previous-codepoint
         category-data.push category-index
