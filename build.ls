@@ -43,6 +43,8 @@ module.exports = (done) ->
   # Returning data
   data = Object.create null
 
+  gulp-util.log "Memory Usage: #{process.memory-usage!rss / (1024 * 1024) |> Math.floor}MiB"
+
   Object.keys unicodes .for-each (version) ->
     current-category = null
     category-data = []
@@ -50,6 +52,9 @@ module.exports = (done) ->
 
     # node-unicode-data 0.2.0 seems to export Map object instead of the plain object hash.
     categories-iter = unicodes[version]!entries!
+
+    gulp-util.log "Unicode data of version #version loaded."
+    gulp-util.log "Memory Usage: #{process.memory-usage!rss / (1024 * 1024) |> Math.floor}MiB"
 
     # Iterates through codepoints and skip for compression if category is succeeding
     until (entry = categories-iter.next!).done
