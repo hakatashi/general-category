@@ -7,28 +7,28 @@ module.exports = (done) ->
   }
 
   unicodes =
-    '1.1.5': require \unicode-1.1.5/categories
-    '2.0.14': require \unicode-2.0.14/categories
-    '2.1.2': require \unicode-2.1.2/categories
-    '2.1.5': require \unicode-2.1.5/categories
-    '2.1.8': require \unicode-2.1.8/categories
-    '2.1.9': require \unicode-2.1.9/categories
-    '3.0.0': require \unicode-3.0.0/categories
-    '3.0.1': require \unicode-3.0.1/categories
-    '3.1.0': require \unicode-3.1.0/categories
-    '3.2.0': require \unicode-3.2.0/categories
-    '4.0.0': require \unicode-4.0.0/categories
-    '4.0.1': require \unicode-4.0.1/categories
-    '4.1.0': require \unicode-4.1.0/categories
-    '5.0.0': require \unicode-5.0.0/categories
-    '5.1.0': require \unicode-5.1.0/categories
-    '5.2.0': require \unicode-5.2.0/categories
-    '6.0.0': require \unicode-6.0.0/categories
-    '6.1.0': require \unicode-6.1.0/categories
-    '6.2.0': require \unicode-6.2.0/categories
-    '6.3.0': require \unicode-6.3.0/categories
-    '7.0.0': require \unicode-7.0.0/categories
-    '8.0.0': require \unicode-8.0.0/categories
+    '1.1.5': require \unicode-1.1.5/General_Category
+    '2.0.14': require \unicode-2.0.14/General_Category
+    '2.1.2': require \unicode-2.1.2/General_Category
+    '2.1.5': require \unicode-2.1.5/General_Category
+    '2.1.8': require \unicode-2.1.8/General_Category
+    '2.1.9': require \unicode-2.1.9/General_Category
+    '3.0.0': require \unicode-3.0.0/General_Category
+    '3.0.1': require \unicode-3.0.1/General_Category
+    '3.1.0': require \unicode-3.1.0/General_Category
+    '3.2.0': require \unicode-3.2.0/General_Category
+    '4.0.0': require \unicode-4.0.0/General_Category
+    '4.0.1': require \unicode-4.0.1/General_Category
+    '4.1.0': require \unicode-4.1.0/General_Category
+    '5.0.0': require \unicode-5.0.0/General_Category
+    '5.1.0': require \unicode-5.1.0/General_Category
+    '5.2.0': require \unicode-5.2.0/General_Category
+    '6.0.0': require \unicode-6.0.0/General_Category
+    '6.1.0': require \unicode-6.1.0/General_Category
+    '6.2.0': require \unicode-6.2.0/General_Category
+    '6.3.0': require \unicode-6.3.0/General_Category
+    '7.0.0': require \unicode-7.0.0/General_Category
+    '8.0.0': require \unicode-8.0.0/General_Category
 
   # TODO: more neat sort algorithm
   versions = Object.keys unicodes .sort!
