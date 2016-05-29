@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "test": "gulp"
+    "test": "node --max-old-space-size=4096 \"`npm bin`/gulp\""
   },
   "repository": {
     "type": "git",
