@@ -8,28 +8,28 @@ module.exports = (done) ->
   }
 
   unicodes =
-    '1.1.5': require \unicode-1.1.5/General_Category
-    '2.0.14': require \unicode-2.0.14/General_Category
-    '2.1.2': require \unicode-2.1.2/General_Category
-    '2.1.5': require \unicode-2.1.5/General_Category
-    '2.1.8': require \unicode-2.1.8/General_Category
-    '2.1.9': require \unicode-2.1.9/General_Category
-    '3.0.0': require \unicode-3.0.0/General_Category
-    '3.0.1': require \unicode-3.0.1/General_Category
-    '3.1.0': require \unicode-3.1.0/General_Category
-    '3.2.0': require \unicode-3.2.0/General_Category
-    '4.0.0': require \unicode-4.0.0/General_Category
-    '4.0.1': require \unicode-4.0.1/General_Category
-    '4.1.0': require \unicode-4.1.0/General_Category
-    '5.0.0': require \unicode-5.0.0/General_Category
-    '5.1.0': require \unicode-5.1.0/General_Category
-    '5.2.0': require \unicode-5.2.0/General_Category
-    '6.0.0': require \unicode-6.0.0/General_Category
-    '6.1.0': require \unicode-6.1.0/General_Category
-    '6.2.0': require \unicode-6.2.0/General_Category
-    '6.3.0': require \unicode-6.3.0/General_Category
-    '7.0.0': require \unicode-7.0.0/General_Category
-    '8.0.0': require \unicode-8.0.0/General_Category
+    '1.1.5': -> require \unicode-1.1.5/General_Category
+    '2.0.14': -> require \unicode-2.0.14/General_Category
+    '2.1.2': -> require \unicode-2.1.2/General_Category
+    '2.1.5': -> require \unicode-2.1.5/General_Category
+    '2.1.8': -> require \unicode-2.1.8/General_Category
+    '2.1.9': -> require \unicode-2.1.9/General_Category
+    '3.0.0': -> require \unicode-3.0.0/General_Category
+    '3.0.1': -> require \unicode-3.0.1/General_Category
+    '3.1.0': -> require \unicode-3.1.0/General_Category
+    '3.2.0': -> require \unicode-3.2.0/General_Category
+    '4.0.0': -> require \unicode-4.0.0/General_Category
+    '4.0.1': -> require \unicode-4.0.1/General_Category
+    '4.1.0': -> require \unicode-4.1.0/General_Category
+    '5.0.0': -> require \unicode-5.0.0/General_Category
+    '5.1.0': -> require \unicode-5.1.0/General_Category
+    '5.2.0': -> require \unicode-5.2.0/General_Category
+    '6.0.0': -> require \unicode-6.0.0/General_Category
+    '6.1.0': -> require \unicode-6.1.0/General_Category
+    '6.2.0': -> require \unicode-6.2.0/General_Category
+    '6.3.0': -> require \unicode-6.3.0/General_Category
+    '7.0.0': -> require \unicode-7.0.0/General_Category
+    '8.0.0': -> require \unicode-8.0.0/General_Category
 
   # TODO: more neat sort algorithm
   versions = Object.keys unicodes .sort!
@@ -49,7 +49,7 @@ module.exports = (done) ->
     previous-codepoint = 0
 
     # node-unicode-data 0.2.0 seems to export Map object instead of the plain object hash.
-    categories-iter = categories.entries!
+    categories-iter = categories!entries!
 
     # Iterates through codepoints and skip for compression if category is succeeding
     until (entry = categories-iter.next!).done
