@@ -8,6 +8,7 @@ module.exports = (done) ->
   }
 
   # Shim Buffer.from for older node versions
+  # This polyfill not works for node v4, so we are skipping build on v4 only.
   Buffer.from = buffer-from
 
   unicodes =
