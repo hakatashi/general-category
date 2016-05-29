@@ -3,9 +3,12 @@ module.exports = (done) ->
     fs, path, async, 'gulp-util'
     'prelude-ls': {fold}
     'lodash.template': template
-    './util.js': {integer-array-to-buffer}
+    './util.js': {integer-array-to-buffer, buffer-from}
     './categories.js': {long-names}
   }
+
+  # Shim Buffer.from for older node versions
+  Buffer.from = buffer-from
 
   unicodes =
     '1.1.5': -> require \unicode-1.1.5/General_Category
