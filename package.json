@@ -33,7 +33,6 @@
   },
   "devDependencies": {
     "async": "^1.5.2",
-    "buffer": "^4.6.0",
     "chai": "^3.4.1",
     "gulp": "^3.9.0",
     "gulp-livescript": "^3.0.0",
