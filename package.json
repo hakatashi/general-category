@@ -34,6 +34,7 @@
   "devDependencies": {
     "async": "^1.5.2",
     "chai": "^3.4.1",
+    "cz-conventional-changelog": "^1.1.6",
     "gulp": "^3.9.0",
     "gulp-livescript": "^3.0.0",
     "gulp-mocha": "^2.2.0",
@@ -64,5 +65,10 @@
     "unicode-6.3.0": "^0.6.0",
     "unicode-7.0.0": "^0.6.0",
     "unicode-8.0.0": "^0.6.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
