@@ -4,6 +4,15 @@
 
 Look up [General_Category](http://unicode.org/reports/tr44/#General_Category) of Unicode character with JavaScript.
 
+## News: The package was considerably slimed down :arrow_down: as of version 1.4.0 :raised_hands:
+
+```sh
+$ du -h `npm pack general-category@1.3`
+184K    general-category-1.3.0.tgz
+$ du -h `npm pack general-category@1.4`
+24K     general-category-1.4.0.tgz
+```
+
 ## Usage
 
 ```js
