@@ -38,32 +38,32 @@ $ du -h `npm pack general-category@1.4`
 const category = require('general-category');
 
 // Just gimme character and you'll get category.
-category('Å'); // -> 'Lu'
+category('Å'); //=> 'Lu'
 
 // This module is aware of surrogate pairs.
-category('\u{1F600}'); // -> 'So'
+category('\u{1F600}'); //=> 'So'
 
 // Providing code point also works.
-category(0x0020); // -> 'Zs'
+category(0x0020); //=> 'Zs'
 
 // You'll get category data with latest version of Unicode by default.
 // You can switch it by `version` option
-category('\u{1F600}', {version: '6.0.0'}); // -> 'Cn'
+category('\u{1F600}', {version: '6.0.0'}); //=> 'Cn'
 
 // If you are only interested in the specific version of Unicode,
 // you can require the module with limited data loaded.
 const category3_2_0 = require('general-category/3.2.0');
-category3_2_0('\u{1F600}'); // -> 'Cn'
+category3_2_0('\u{1F600}'); //=> 'Cn'
 
 // 'latest' version also works.
 const categoryLatest = require('general-category/latest');
-categoryLatest('\u{1F600}'); // -> 'So'
+categoryLatest('\u{1F600}'); //=> 'So'
 
 // You can get long_name instead of an abbreviated one.
-category('Ä', {long: true}); // -> 'Uppercase_Letter'
+category('Ä', {long: true}); //=> 'Uppercase_Letter'
 
 // You can also get detaild information of category.
-category('Ä', {detailed: true}); // -> { large: 'L', small: 'Lu' }
+category('Ä', {detailed: true}); //=> { large: 'L', small: 'Lu' }
 ```
 
 ## API
