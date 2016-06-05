@@ -10,7 +10,7 @@
   "scripts": {
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "test": "node --max-old-space-size=4096 \"`npm bin`/gulp\" && npm run readme",
-    "readme": "test \"$TRAVIS_NODE_VERSION\" = node && readme-assert -p"
+    "readme": "test \"$TRAVIS_NODE_VERSION\" != node || readme-assert -p"
   },
   "repository": {
     "type": "git",
