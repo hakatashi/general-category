@@ -30,6 +30,8 @@ $ du -h `npm pack general-category@1.3`
 184K    general-category-1.3.0.tgz
 $ du -h `npm pack general-category@1.4`
 24K     general-category-1.4.0.tgz
+$ du -h `npm pack general-category@1.5`
+17K     general-category-1.5.0.tgz
 ```
 
 ## Usage
