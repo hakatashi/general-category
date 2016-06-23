@@ -98,15 +98,10 @@ module.exports = (done) ->
         done!
 
     (done) -> async.parallel [
-      # Write out to JSON file
-      (done) -> fs.write-file \data/index.json JSON.stringify(data), done
-
       # Write separated version to JSON file
       (done) -> async.for-each-of data, (category-data, version, done) ->
-        new-data = (version): category-data
-
         async.parallel [
-          (done) -> fs.write-file "data/#version.json" JSON.stringify(new-data), done
+          (done) -> fs.write-file "data/#version.json" JSON.stringify(category-data), done
 
           (done) -> fs.write-file "#version.js", version-template({version}), done
         ], done
