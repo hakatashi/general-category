@@ -1,8 +1,11 @@
 language: node_js
-node_js:
-  - 'node'
-  - '5'
-  - '0.12'
+matrix:
+  include:
+    - node_js: node
+    - node_js: 4
+    - node_js: 0.12
+    - node_js: node
+      env: NVM_NODEJS_ORG_MIRROR=https://nodejs.org/download/nightly
 before_install:
   # install NPM 2
   - npm i -g npm@^2.0.0
