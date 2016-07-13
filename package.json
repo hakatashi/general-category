@@ -33,7 +33,7 @@
     "prelude-ls": "^1.1.2"
   },
   "devDependencies": {
-    "async": "^1.5.2",
+    "async": "^2.0.0",
     "chai": "^3.4.1",
     "cz-conventional-changelog": "^1.1.6",
     "gulp": "^3.9.0",
