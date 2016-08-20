@@ -99,4 +99,5 @@ This module exposes single function `category(character[, options])`.
 		* 6.3.0
 		* 7.0.0
 		* 8.0.0
+		* 9.0.0
 * **return** [String | Object]: General_Category of the given character. If `options.detailed` is set `true`, returns object with detailed category information.

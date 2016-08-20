@@ -22,5 +22,6 @@ data =
   '6.3.0': require \./data/6.3.0.json
   '7.0.0': require \./data/7.0.0.json
   '8.0.0': require \./data/8.0.0.json
+  '9.0.0': require \./data/9.0.0.json
 
 module.exports = require('./general-category.js')(data)

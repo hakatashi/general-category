@@ -34,6 +34,7 @@ module.exports = (done) ->
     '6.3.0': -> require \unicode-6.3.0/General_Category
     '7.0.0': -> require \unicode-7.0.0/General_Category
     '8.0.0': -> require \unicode-8.0.0/General_Category
+    '9.0.0': -> require \unicode-9.0.0/General_Category
 
   # TODO: more neat sort algorithm
   versions = Object.keys unicodes .sort!
