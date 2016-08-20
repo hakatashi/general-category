@@ -329,7 +329,7 @@ describe 'Limited version submodule' ->
 
     expect general-category \Ꮋ
     .to.equal \Lu
-    expect general-category \Ꮋ version: \8.0.0
+    expect general-category \Ꮋ version: \9.0.0
     .to.equal \Lu
     expect -> general-category \Ꮋ version: \5.2.0
     .to.throw Error
