@@ -1,5 +1,7 @@
 # general-category
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/hakatashi/general-category.svg)](https://greenkeeper.io/)
+
 [![npm version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Dependency Status][david-image]][david-url]
