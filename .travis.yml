@@ -1,7 +1,7 @@
 language: node_js
 node_js:
   - node
-  - 0.12
+  - 4
 before_install:
   # install NPM 2
   - npm i -g npm@^2.0.0
