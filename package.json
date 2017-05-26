@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "async": "^2.0.0",
-    "chai": "^3.4.1",
+    "chai": "^4.0.0",
     "cz-conventional-changelog": "^2.0.0",
     "gulp": "^3.9.0",
     "gulp-livescript": "^3.0.0",
