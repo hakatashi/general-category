@@ -42,7 +42,7 @@
     "gulp-util": "^3.0.7",
     "livescript": "^1.4.0",
     "lodash.template": "^4.0.1",
-    "mocha": "^5.0.0",
+    "mocha": "^6.0.0",
     "readme-assert": "^5.0.0",
     "semantic-release": "^12.2.4",
     "unicode-1.1.5": "^0.7.0",
