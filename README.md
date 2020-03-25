@@ -7,7 +7,7 @@
 
 [![semantic-release][semrel-image]][semrel-url]
 [![Commitizen friendly][commitizen-image]][commitizen-url]
-[![Greenkeeper badge](https://badges.greenkeeper.io/hakatashi/general-category.svg)](https://greenkeeper.io/)
+
 
 [npm-image]: https://img.shields.io/npm/v/general-category.svg
 [npm-url]: https://www.npmjs.com/package/general-category
